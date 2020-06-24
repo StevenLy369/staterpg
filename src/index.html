@@ -2,9 +2,38 @@
 <html>
   <head>
     <title>TITLE</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="character.js"></script>
   </head>
   <body>
-    <h1>THIS IS A HEADER</h1>
-    <p>THIS IS A PARAGRAPH</p>
+    <h1>RPG-7</h1>
+   <form action="submit" id="form">
+     <label for ="name">Name:</label>
+     <input type ="text" id="name" name="name">
+     
+    <button type="submit" id="form">Press now bitch</button>
+   </form>
+
+   <button id="battle">Battle</button>
+
+   <div id="player">
+  <h1>Name:<div id="name-value"></div></h1>
+  <h1>Health:<div id="health-value"></div></h1>
+  <h1>Dexterity:<div id="dexterity-value"></div></h1>
+  <h1>Strength:<div id="strength-value"></div></h1>
+  <h1>Intellect:<div id="intelligience-value"></div></h1> 
+   </div>
+
+
+
+   <div id="npc">
+  <h1>Name:<div id="npc-name-value"></div></h1>
+  <h1>Health:<div id="npc-health-value"></div></h1>
+  <h1>Dexterity:<div id="npc-dexterity-value"></div></h1>
+  <h1>Strength:<div id="npc-strength-value"></div></h1>
+  <h1>Intellect:<div id="npc-intelligience-value"></div></h1> 
+   </div>
+
   </body>
 </html>
