@@ -1,5 +1,5 @@
 export const storeState = () => {
-	let currentState = { name: '', health: 50, strength: 0, dexterity: 0, intelligience: 0 };
+	let currentState = {};
 	return (stateChangeFunction) => {
 		const newState = stateChangeFunction(currentState);
 		currentState = { ...newState };
@@ -9,20 +9,20 @@ export const storeState = () => {
 
 export const stateChanger = storeState();
 
-export const stateChangerNpc = storeState({
-	name: 'Big Rob The Bad One',
-	health: 150,
-	strength: 30,
-	intelligience: -100
-});
-
 //state for numerical value
 export const changeState = (prop) => {
 	return (value) => {
-		return (state) => ({
-			...state,
-			[prop]: (state[prop] || 0) + value
-		});
+		if (typeof value === 'number') {
+			return (state) => ({
+				...state,
+				[prop]: (state[prop] || 0) + value
+			});
+		} else {
+			return (state) => ({
+				...state,
+				[prop]: (state[prop] || '') + value
+			});
+		}
 	};
 };
 
@@ -33,6 +33,16 @@ export const changeStateString = (prop) => {
 		return (state) => ({
 			...state,
 			[prop]: state[prop] || value
+		});
+	};
+};
+
+export const changeStateNpc = (prop, prop2) => {
+	return (value, value2) => {
+		return (state) => ({
+			...state,
+			[prop]: state[prop] || value,
+			[prop2]: (state[prop2] || 0) + value2
 		});
 	};
 };
