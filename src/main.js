@@ -55,4 +55,9 @@ $(document).ready(function() {
 	// 	}
 	// 	$('#health-value').text(newState.health);
 	// });
+
+	$('#fight').click(function() {
+		$('body').load('./battle.html');
+		console.log('help');
+	});
 });
