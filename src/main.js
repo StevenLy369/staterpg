@@ -2,48 +2,57 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { stateChanger, changeStateString, changeState, stateChangerNpc, changeStateNpc, rob } from './character.js';
+import { stateChanger, changeState } from './character.js';
 
 //functions here: battle? level?
-
-const damage = Math.floor(Math.random() * 25) - 25;
-// const battle = changeState('health');
-//player health goes down
-const highDmg = changeState('health')(damage);
-
+const giveNameP = changeState('name');
+const giveHealthP = changeState('health');
+const giveStrengthP = changeState('strength');
+const giveDexterityP = changeState('dexterity');
+const giveIntelligienceP = changeState('intelligience');
 $(document).ready(function() {
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		let name = $('#name').val();
-		const addPlayer = changeStateString('name')(name);
-		const newState = stateChanger(addPlayer);
-		$('#name-value').text(newState.name);
-		$('#health-value').text(newState.health);
-		$('#strength-value').text(newState.strength);
-		$('#dexterity-value').text(newState.dexterity);
-		$('#intelligience-value').text(newState.intelligience);
 
-		// const addNpcInt = changeState('health')(150)('strength')(50)('dexterity')(15)('intelligience')(-100);
-		// ('health')(150)('strength')(30)('dexterity')(25)(
-		// 	'intelligience'
-		// )(-30);
-		const newNpc = rob();
-		// const newNpcInt = stateChanger(addNpcInt);
+		// Name Input
+		var name = $('#p-name').val();
+		const addName = giveNameP(name);
+		const newGameName = stateChanger(addName);
 
-		$('#npc-name-value').text(newNpc.name);
-		$('#npc-health-value').text(newNpc.health);
-		$('#npc-strength-value').text(newNpc.strength);
-		$('#npc-dexterity-value').text(newNpc.dexterity);
-		$('#npc-intelligience-value').text(newNpc.intelligience);
+		// Strength Input
+		var str = $('#p-strength').val();
+		const addStr = giveStrengthP(str);
+		const newGameStr = stateChanger(addStr);
+
+		// Dexterity Input
+		var dext = $('#p-dexterity').val();
+		const addDext = giveDexterityP(dext);
+		const newGameDext = stateChanger(addDext);
+
+		// Intelligience Input
+		var intel = $('#p-intelligience').val();
+		const addIntel = giveIntelligienceP(intel);
+		const newGameIntel = stateChanger(addIntel);
+
+		const newGameHealth = stateChanger(giveHealthP(50));
+
+		$('#name-value').text(newGameName.name);
+
+		$('#health-value').text(newGameHealth.health);
+		$('#strength-value').text(newGameStr.strength);
+		$('#dexterity-value').text(newGameDext.dexterity);
+		$('#intelligience-value').text(newGameIntel.intelligience);
 
 		console.log('button works');
+		$('#player').show();
+		$('#form').hide();
 	});
 
-	$('#battle').click(function() {
-		const newState = stateChanger(highDmg);
-		if (newState.health <= 0) {
-			newState.health = 0;
-		}
-		$('#health-value').text(newState.health);
-	});
+	// $('#battle').click(function() {
+	// 	const newState = stateChanger(highDmg);
+	// 	if (newState.health <= 0) {
+	// 		newState.health = 0;
+	// 	}
+	// 	$('#health-value').text(newState.health);
+	// });
 });

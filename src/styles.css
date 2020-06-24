@@ -1,8 +1,14 @@
 #npc {
 	text-align: center;
 	left: 520px;
+	display: none;
 }
 
 #player {
 	float: left;
+	display: none;
+}
+
+#form {
+	display: show;
 }

@@ -9,7 +9,7 @@ export const storeState = () => {
 
 export const stateChanger = storeState();
 
-//state for numerical value
+//State that checks if value is a number; if so will return state as an int, vice versa if else
 export const changeState = (prop) => {
 	return (value) => {
 		if (typeof value === 'number') {
@@ -26,23 +26,4 @@ export const changeState = (prop) => {
 	};
 };
 
-//state for character creation
-
-export const changeStateString = (prop) => {
-	return (value) => {
-		return (state) => ({
-			...state,
-			[prop]: state[prop] || value
-		});
-	};
-};
-
-export const changeStateNpc = (prop, prop2) => {
-	return (value, value2) => {
-		return (state) => ({
-			...state,
-			[prop]: state[prop] || value,
-			[prop2]: (state[prop2] || 0) + value2
-		});
-	};
-};
+export const defaultChar = { name: '', health: 50, strength: 0, dexterity: 0, intelligience: 0 };
