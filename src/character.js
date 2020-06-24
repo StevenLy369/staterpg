@@ -25,5 +25,3 @@ export const changeState = (prop) => {
 		}
 	};
 };
-
-export const defaultChar = { name: '', health: 50, strength: 0, dexterity: 0, intelligience: 0 };
