@@ -8,6 +8,7 @@ export const storeState = () => {
 };
 
 export const stateChanger = storeState();
+export const stateChangerNpc = storeState();
 
 //State that checks if value is a number; if so will return state as an int, vice versa if else
 export const changeState = (prop) => {

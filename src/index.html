@@ -7,54 +7,60 @@
     <script type="text/javascript" src="character.js"></script>
   </head>
   <body>
-    <h1>RPG-7</h1>
-   <form action="submit" id="form">
+    
+    <h1 id="header">RPG-7</h1>
+    <hr>
+    <div class="container">
+      <form action="submit" id="form">
 
-    <!-- Name Input -->
-    <label for ="name">Name:</label>
-    <input type ="text" id="p-name" name="name">
-    <br>
+        <!-- Name Input -->
+        <label for ="name">Name:</label>
+        <input type ="text" id="p-name" name="name">
+        <br>
+    
+        <!-- Strength Input -->
+        <label for="strength">Enter your Desired Strength:</label>
+        <input type="number" name="str" id="p-strength" placeholder="max:10" min="1" max="10">
+        <br>
+    
+        <!-- Dexterity Input -->
+        <label for="strength">Enter your Desired Dexterity:</label>
+        <input type="number" name="str" id="p-dexterity" placeholder="max:10" min="1" max="10">
+        <br> 
+    
+        <!-- Intelligience Input -->
+        <label for="Intelligience">Enter your Desired Intelligience:</label>
+        <input type="number" name="str" id="p-intelligience" placeholder="max:10" min="1" max="10">
+         <br>
+         
+        <button type="submit" id="form">Press now bitch</button>
+       </form>
+    
+       <button id="battle">Battle</button>
+    
+       
+       <div id="player">
+      <h1>Name:<div id="name-value"></div></h1>
+      <h1>Health:<div id="health-value"></div></h1>
+      <h1>Dexterity:<div id="dexterity-value"></div></h1>
+      <h1>Strength:<div id="strength-value"></div></h1>
+      <h1>Intelligience:<div id="intelligience-value"></div></h1> 
+       </div>
+    
+    
+    
+       <div id="npc">
+      <h1>Name:<div id="npc-name-value"></div></h1>
+      <h1>Health:<div id="npc-health-value"></div></h1>
+      <h1>Dexterity:<div id="npc-dexterity-value"></div></h1>
+      <h1>Strength:<div id="npc-strength-value"></div></h1>
+      <h1>Intelligience:<div id="npc-intelligience-value"></div></h1> 
+       </div>
+    
 
-    <!-- Strength Input -->
-    <label for="strength">Enter your Desired Strength:</label>
-    <input type="number" name="str" id="p-strength" placeholder="max:10" min="1" max="10">
-    <br>
-
-    <!-- Dexterity Input -->
-    <label for="strength">Enter your Desired Dexterity:</label>
-    <input type="number" name="str" id="p-dexterity" placeholder="max:10" min="1" max="10">
-    <br> 
-
-    <!-- Intelligience Input -->
-    <label for="Intelligience">Enter your Desired Intelligience:</label>
-    <input type="number" name="str" id="p-intelligience" placeholder="max:10" min="1" max="10">
-     <br>
-     
-    <button type="submit" id="form">Press now bitch</button>
-   </form>
-
-   <button id="battle">Battle</button>
-
+    </div>
    
-   <div id="player">
-  <h1>Name:<div id="name-value"></div></h1>
-  <h1>Health:<div id="health-value"></div></h1>
-  <h1>Dexterity:<div id="dexterity-value"></div></h1>
-  <h1>Strength:<div id="strength-value"></div></h1>
-  <h1>Intelligience:<div id="intelligience-value"></div></h1> 
-   </div>
-
-
-
-   <div id="npc">
-  <h1>Name:<div id="npc-name-value"></div></h1>
-  <h1>Health:<div id="npc-health-value"></div></h1>
-  <h1>Dexterity:<div id="npc-dexterity-value"></div></h1>
-  <h1>Strength:<div id="npc-strength-value"></div></h1>
-  <h1>Intelligience:<div id="npc-intelligience-value"></div></h1> 
-   </div>
-
-   <button id="fight" type="submit" > you like to fight????</button>
+   
 
   </body>
 </html>

@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { stateChanger, changeState } from './character.js';
+import { stateChanger, changeState, stateChangerNpc } from './character.js';
 
 //functions here: battle? level?
 const giveNameP = changeState('name');
@@ -10,6 +10,13 @@ const giveHealthP = changeState('health');
 const giveStrengthP = changeState('strength');
 const giveDexterityP = changeState('dexterity');
 const giveIntelligienceP = changeState('intelligience');
+
+const giveNameNpc = changeState('name');
+const giveHealthNpc = changeState('health');
+const giveStrengthNpc = changeState('strength');
+const giveDexterityNpc = changeState('dexterity');
+const giveIntelligienceNpc = changeState('intelligience');
+
 $(document).ready(function() {
 	$('#form').submit(function(event) {
 		event.preventDefault();
@@ -34,7 +41,7 @@ $(document).ready(function() {
 		const addIntel = giveIntelligienceP(intel);
 		const newGameIntel = stateChanger(addIntel);
 
-		const newGameHealth = stateChanger(giveHealthP(50));
+		const newGameHealth = stateChanger(giveHealthP(100));
 
 		$('#name-value').text(newGameName.name);
 
@@ -48,16 +55,35 @@ $(document).ready(function() {
 		$('#form').hide();
 	});
 
-	// $('#battle').click(function() {
-	// 	const newState = stateChanger(highDmg);
-	// 	if (newState.health <= 0) {
-	// 		newState.health = 0;
-	// 	}
-	// 	$('#health-value').text(newState.health);
-	// });
+	$('#battle').click(function() {
+		$('#npc').show();
+		$('#battle').hide();
+		$('#npc-name-value').text;
 
-	$('#fight').click(function() {
-		$('body').load('./battle.html');
-		console.log('help');
+		var npcName = 'Bobby';
+		const addNpcName = giveNameNpc(npcName);
+		const newNpcName = stateChangerNpc(addNpcName);
+
+		var npcHealth = 300;
+		const addNpcHealth = giveHealthNpc(npcHealth);
+		const newNpcHealth = stateChangerNpc(addNpcHealth);
+
+		var npcStr = 50;
+		const addNpcStr = giveStrengthNpc(npcStr);
+		const newNpcStr = stateChangerNpc(addNpcStr);
+
+		var npcDex = 35;
+		const addNpcDex = giveDexterityNpc(npcDex);
+		const newNpcDex = stateChangerNpc(addNpcDex);
+
+		var npcIntelligience = 1;
+		const addNpcInt = giveIntelligienceNpc(npcIntelligience);
+		const newNpcInt = stateChangerNpc(addNpcInt);
+
+		$('#npc-name-value').text(newNpcName.name);
+		$('#npc-health-value').text(newNpcHealth.health);
+		$('#npc-strength-value').text(newNpcStr.strength);
+		$('#npc-dexterity-value').text(newNpcDex.dexterity);
+		$('#npc-intelligience-value').text(newNpcInt.intelligience);
 	});
 });
